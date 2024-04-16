@@ -122,29 +122,40 @@ const taskList = [
 
 const btnEx7 = document.getElementById("ex7-button");
 const ulEx7 = document.querySelector("#ex7-list");
-console.log((ulEx7.innerHTML += "<p class='task-list-task'>hello</p>"));
 
-function getTask(taskList, i) {
-  return taskList[i];
+function getTask(taskList) {
+  firstElement = taskList.shift();
+  taskList.push(firstElement);
+  return firstElement;
 }
 
-let i;
 btnEx7.addEventListener("click", function () {
-  if (i === undefined || i > taskList.length) {
-    i = 0;
-  }
-  ulEx7.innerHTML += "<li class='task-list-task'>" + taskList[i] + "</li>";
-  i++;
+  ulEx7.innerHTML +=
+    "<li class='task-list-task'>" + getTask(taskList) + "</li>";
 });
 
 ulEx7.addEventListener("click", function (event) {
   console.log(event.target);
-  this.removeChild(event.targetgit)
+  this.removeChild(event.target);
+  ulEx7.innerHTML +=
+    "<li class='task-list-task'>" + getTask(taskList) + "</li>";
 });
-// ulEx7.addEventListener("click", function (event) {
-//   console.log(event);
-//   event
-// });
 
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
+
+const btnLevel = document.getElementById("ex8-button-level");
+const btnStrength = document.getElementById("ex8-button-strength");
+const btnShield = document.getElementById("ex8-button-shield");
+
+function updateBar() {
+  let levelValue = 0;
+  btnLevel.addEventListener("click", function (event) {
+    if(levelValue<=100){
+    levelValue += 5;
+    document.getElementById("ex8-level").style.width = `${levelValue}` + "px";}
+  });
+  console.log("ok")
+}
+
+updateBar();
