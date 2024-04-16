@@ -56,12 +56,6 @@ btnEx4.addEventListener("click", function (event) {
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 
-// const colors = [];
-
-// for (let i = 0; i < 10; i++) {
-//   const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-//   colors.push(randomColor);
-// }
 
 const ulEx5 = document.getElementById("js-random-hovercolor");
 for (const child of ulEx5.children) {
@@ -144,18 +138,25 @@ ulEx7.addEventListener("click", function (event) {
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
 
-const btnLevel = document.getElementById("ex8-button-level");
-const btnStrength = document.getElementById("ex8-button-strength");
-const btnShield = document.getElementById("ex8-button-shield");
 
-function updateBar() {
+
+/**
+ * When the button is clicked, the bar update starts at zero score.
+ * @param {string} btnId the button Html id.
+ * @param {string} barId the bar Html id.
+ * @param {string} points the increment value.
+ * @param {string} maxScore the maximum Score.
+ */
+function updateBar(btnId, barId, points, maxScore) {
   let levelValue = 0;
-  btnLevel.addEventListener("click", function (event) {
-    if(levelValue<=100){
-    levelValue += 5;
-    document.getElementById("ex8-level").style.width = `${levelValue}` + "px";}
+  document.getElementById(btnId).addEventListener("click", function (event) {
+    if (levelValue <= maxScore) {
+      levelValue += points;
+      document.getElementById(barId).style.width = `${levelValue}` + "px";
+    }
   });
-  console.log("ok")
 }
 
-updateBar();
+updateBar("ex8-button-level", "ex8-level", 5, 100);
+updateBar("ex8-button-strength", "ex8-strength", 5, 100);
+updateBar("ex8-button-shield", "ex8-shield", 5, 100);
