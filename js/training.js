@@ -25,7 +25,6 @@ let animalLst = document.querySelector("#ex3-animals");
 let btnAnimal = document.querySelector(
   "#ex3 .exercice-sandbox button[type=button]"
 );
-console.log(animalLst);
 btnAnimal.addEventListener("click", function (event) {
   animalLst.append(document.querySelector("#ex3-animals li:first-child"));
 });
@@ -35,7 +34,6 @@ btnAnimal.addEventListener("click", function (event) {
 let btnEx4 = document.querySelector(
   "#ex4 .exercice-sandbox button[type=button]"
 );
-console.log(btnEx4);
 let nextColor = "blue";
 btnEx4.addEventListener("click", function (event) {
   if (nextColor === "blue") {
@@ -57,6 +55,31 @@ btnEx4.addEventListener("click", function (event) {
 
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
+
+// const colors = [];
+
+// for (let i = 0; i < 10; i++) {
+//   const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+//   colors.push(randomColor);
+// }
+
+const ulEx5 = document.getElementById("js-random-hovercolor");
+for (const child of ulEx5.children) {
+  child
+    .querySelector(".button--js-hover")
+    .addEventListener("mouseover", function (event) {
+      // this.classList.add("js-random-hovercolor");
+      this.style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    });
+
+    child.querySelector(".button--js-hover")
+    .addEventListener("mouseout", function (event) {
+      // this.classList.add("js-random-hovercolor");
+      this.style.background = "";
+    });
+
+
+}
 
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
