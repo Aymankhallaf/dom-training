@@ -1,0 +1,19 @@
+.text-hidden {
+    display: none;
+  }
+  
+  .button--blue {
+    background-color: blue;
+  }
+  
+  .button--red {
+    background-color: red;
+  }
+  
+  .button--green {
+    background-color: green;
+  }
+  
+  .js-random-hovercolor:hover {
+  background-color: blue;
+  }
