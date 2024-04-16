@@ -69,20 +69,44 @@ for (const child of ulEx5.children) {
     .querySelector(".button--js-hover")
     .addEventListener("mouseover", function (event) {
       // this.classList.add("js-random-hovercolor");
-      this.style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      this.style.background =
+        "#" + Math.floor(Math.random() * 16777215).toString(16);
     });
 
-    child.querySelector(".button--js-hover")
+  child
+    .querySelector(".button--js-hover")
     .addEventListener("mouseout", function (event) {
       // this.classList.add("js-random-hovercolor");
       this.style.background = "";
     });
-
-
 }
 
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
+
+let textEx6 = document.getElementById("ex6-paragraph");
+
+// setInterval(function() {element.innerHTML += "Hello"}, 1000);
+
+// console.log(textEx6.innerText);
+// console.log(textEx6.innerText.charAt(0))
+
+// function showLettre() {
+//   for (let l of textEx6.innerText) {
+//     setInterval(() => {
+//       console.log(l);
+//       textEx6.trum();
+//     }, 1000 / 20);
+//   }
+
+// }
+// showLettre();
+
+// setInterval(function () {
+//   for (const l of textEx6.textContent) {
+//     textEx6.textContent += l;
+//   }
+// }, 1000);
 
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
@@ -95,6 +119,32 @@ const taskList = [
   "🧹 Passer l'aspirateur",
   "🌳 Tondre la pelouse",
 ];
+
+const btnEx7 = document.getElementById("ex7-button");
+const ulEx7 = document.querySelector("#ex7-list");
+console.log((ulEx7.innerHTML += "<p class='task-list-task'>hello</p>"));
+
+function getTask(taskList, i) {
+  return taskList[i];
+}
+
+let i;
+btnEx7.addEventListener("click", function () {
+  if (i === undefined || i > taskList.length) {
+    i = 0;
+  }
+  ulEx7.innerHTML += "<li class='task-list-task'>" + taskList[i] + "</li>";
+  i++;
+});
+
+ulEx7.addEventListener("click", function (event) {
+  console.log(event.target);
+  this.removeChild(event.targetgit)
+});
+// ulEx7.addEventListener("click", function (event) {
+//   console.log(event);
+//   event
+// });
 
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
