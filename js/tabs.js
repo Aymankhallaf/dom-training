@@ -5,16 +5,16 @@ const tabContact = document.querySelector('a[href="#contact"]');
 
 // console.log(article2);
 
-tabHistory.addEventListener("click", function (event) {
-  //   console.log(tabHistory.dataset.tab);
+// tabHistory.addEventListener("click", function (event) {
+//   //   console.log(tabHistory.dataset.tab);
 
-  article1.classList.toggle("text-hidden");
-  article2.classList.toggle("text-hidden");
+//   article1.classList.toggle("text-hidden");
+//   article2.classList.toggle("text-hidden");
 
-  if (tabHistory.dataset.tab === "tabs-tab1") {
-    tabHistory.classList.toggle("main-nav-link.active");
-  }
-});
+//   if (tabHistory.dataset.tab === "tabs-tab1") {
+//     tabHistory.classList.toggle("main-nav-link.active");
+//   }
+// });
 
 // tabLinks.addEventListener("click", function (event) {
 //   console.log(event.target);
@@ -30,11 +30,43 @@ function getDataSetLst(tagtext) {
   }
   return datalst;
 }
+// console.log(getDataSetLst("tabs-links"))
 
-
-function getArticls(idTag) {
-  return document.getElementById(idTag);
+function getArticls(dataSetTag) {
+  return document.getElementById(dataSetTag);
 }
+
+function hideArticlesExcepetOne(tagtext, showSet) {
+  for (const set of getDataSetLst(tagtext)) {
+    getArticls(set).classList.add("text-hidden");
+  }
+  getArticls(showSet).classList.remove("text-hidden");
+}
+
+// function activeTab() {
+//   for (const child of document.getElementById("tabs-links").children) {
+//     child.classList.remove("active");
+//   }
+// }
+
+// activeTab("tabs-links");
+
 
 // console.log(getArticls(getDataSetLst("tabs-links")[0]));
 // console.log(getArticls("tabs-tab1"));
+
+const tabsLinks = document.getElementById("tabs-links").children;
+
+function activeTab (){
+
+    for (const child of tabsLinks) {
+    
+      child.addEventListener("click", function (event) {
+        console.log(event.target.dataset.tab);
+        hideArticlesExcepetOne("tabs-links", event.target.dataset.tab);
+      });
+}
+}
+
+activeTab ()
+// console.log(tabsLinks);

@@ -1,22 +1,25 @@
 .text-hidden {
-    display: none;
-  }
-  
-  .button--blue {
-    background-color: blue;
-  }
-  
-  .button--red {
-    background-color: red;
-  }
-  
-  .button--green {
-    background-color: green;
-  }
-  
-  .button--js-hover{
+  display: none;
+}
 
-  }
+.text-show {
+  display: contents;
+}
+
+.button--blue {
+  background-color: blue;
+}
+
+.button--red {
+  background-color: red;
+}
+
+.button--green {
+  background-color: green;
+}
+
+.button--js-hover {
+}
 .active {
   background-color: white;
 }
