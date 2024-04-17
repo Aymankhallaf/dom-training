@@ -75,7 +75,6 @@ for (const child of ulEx5.children) {
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 
-
 let textEx6 = document.getElementById("ex6-paragraph").innerText.split("");
 document.getElementById("ex6-paragraph").textContent = "";
 let i = 0;
@@ -109,12 +108,12 @@ const btnEx7 = document.getElementById("ex7-button");
 const ulEx7 = document.querySelector("#ex7-list");
 
 /**
- * get the task from task list and 
- * @param {array} taskList 
- * @returns 
+ * get the task from a task list and put it in the end.
+ * @param {array} taskList a list of elements.
+ * @returns {*} first emeent in the list.
  */
 function getTask(taskList) {
-  firstElement = taskList.shift();
+  let firstElement = taskList.shift();
   taskList.push(firstElement);
   return firstElement;
 }
@@ -125,10 +124,7 @@ btnEx7.addEventListener("click", function () {
 });
 
 ulEx7.addEventListener("click", function (event) {
-  console.log(event.target);
   this.removeChild(event.target);
-  ulEx7.innerHTML +=
-    "<li class='task-list-task'>" + getTask(taskList) + "</li>";
 });
 
 /* ------------------------------------ */
