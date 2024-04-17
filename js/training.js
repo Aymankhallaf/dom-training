@@ -108,6 +108,11 @@ const taskList = [
 const btnEx7 = document.getElementById("ex7-button");
 const ulEx7 = document.querySelector("#ex7-list");
 
+/**
+ * get the task from task list and 
+ * @param {array} taskList 
+ * @returns 
+ */
 function getTask(taskList) {
   firstElement = taskList.shift();
   taskList.push(firstElement);
