@@ -140,9 +140,9 @@ ulEx7.addEventListener("click", function (event) {
 function updateBar(btnId, barId, points, maxScore) {
   let levelValue = 0;
   document.getElementById(btnId).addEventListener("click", function (event) {
-    if (levelValue <= maxScore) {
+    if (levelValue < maxScore) {
       levelValue += points;
-      document.getElementById(barId).style.width = `${levelValue}` + "px";
+      document.getElementById(barId).style.width = `${levelValue}` + "%";
     }
   });
 }
