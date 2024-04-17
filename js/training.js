@@ -56,13 +56,11 @@ btnEx4.addEventListener("click", function (event) {
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 
-
 const ulEx5 = document.getElementById("js-random-hovercolor");
 for (const child of ulEx5.children) {
   child
     .querySelector(".button--js-hover")
     .addEventListener("mouseover", function (event) {
-      // this.classList.add("js-random-hovercolor");
       this.style.background =
         "#" + Math.floor(Math.random() * 16777215).toString(16);
     });
@@ -70,7 +68,6 @@ for (const child of ulEx5.children) {
   child
     .querySelector(".button--js-hover")
     .addEventListener("mouseout", function (event) {
-      // this.classList.add("js-random-hovercolor");
       this.style.background = "";
     });
 }
@@ -78,29 +75,23 @@ for (const child of ulEx5.children) {
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 
-let textEx6 = document.getElementById("ex6-paragraph");
 
-// setInterval(function() {element.innerHTML += "Hello"}, 1000);
+let textEx6 = document.getElementById("ex6-paragraph").innerText.split("");
+document.getElementById("ex6-paragraph").textContent = "";
+let i = 0;
 
-// console.log(textEx6.innerText);
-// console.log(textEx6.innerText.charAt(0))
+/**
+ * showing 20 letters by seconds
+ */
+function showLettres() {
+  document.getElementById("ex6-paragraph").textContent += textEx6[i];
+  i++;
+  if (i < textEx6.length) {
+    setTimeout(showLettres, 1000 / 20);
+  }
+}
 
-// function showLettre() {
-//   for (let l of textEx6.innerText) {
-//     setInterval(() => {
-//       console.log(l);
-//       textEx6.trum();
-//     }, 1000 / 20);
-//   }
-
-// }
-// showLettre();
-
-// setInterval(function () {
-//   for (const l of textEx6.textContent) {
-//     textEx6.textContent += l;
-//   }
-// }, 1000);
+showLettres();
 
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
@@ -137,8 +128,6 @@ ulEx7.addEventListener("click", function (event) {
 
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
-
-
 
 /**
  * When the button is clicked, the bar update starts at zero score.
