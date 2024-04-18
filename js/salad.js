@@ -33,34 +33,48 @@ function createLiBtnTemplate(item, targetUlId) {
     "</button></li>");
 }
 
-function displayArrayInliAndButton(array, targetUlId) {
+function displayHtmlArray(array, targetUlId) {
   for (const item of array) {
     createLiBtnTemplate(item, targetUlId);
   }
 }
 
-displayArrayInliAndButton(ingredients, "salad-ingredients");
+displayHtmlArray(ingredients, "salad-ingredients");
 
-console.log(document.getElementById("salad-ingredients").children);
+function relocatedItem(item, targetArrayTag) {
+  createLiBtnTemplate(item.innerHTML, targetArrayTag);
+  item.parentNode.remove();
+}
 
-function addLiToUl() {
+
+
+function relocatedClicked(
+  ulClickedTag,
+  ulTargetTag,
+  maxUlTargetLength,
+  DoCountTarget,
+  counterShowTag
+) {
   document
-    .getElementById("salad-ingredients")
+    .getElementById(ulClickedTag)
     .addEventListener("click", function (event) {
-      if (document.getElementById("salad-final").children.length >= 5) return;
+        const isButton = event.target.nodeName === 'BUTTON';
+        if (!isButton) {
+            return;
+        }
+      if (
+        document.getElementById(ulTargetTag).children.length >=
+        maxUlTargetLength
+      )
+        return;
 
-      switchItemBetweenTwoArraies(
-        event.target,
-        "salad-final"
-      );
-      document.getElementById("salad-count").innerText =
-        document.getElementById("salad-final").children.length;
+      relocatedItem(event.target, ulTargetTag);
+      if (DoCountTarget) {
+        document.getElementById(counterShowTag).innerText =
+          document.getElementById(ulTargetTag).children.length;
+      }
     });
 }
 
-addLiToUl();
-
-function switchItemBetweenTwoArraies(item, targetArrayTag) {
-  createLiBtnTemplate(item.innerHTML, targetArrayTag);
-  item.remove();
-}
+relocatedClicked("salad-ingredients", "salad-final", 5, true, "salad-count");
+relocatedClicked("salad-final", "salad-ingredients", 14, false, "salad-count");
