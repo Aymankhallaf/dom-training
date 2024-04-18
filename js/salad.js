@@ -118,5 +118,5 @@ function updateCounter() {
 }
 
 displayHtmlArray(ingredients, "salad-ingredients");
-relocatedClicked("salad-ingredients", "salad-final");
-relocatedClicked("salad-final", "salad-ingredients");
+relocatedClicked("salad-ingredients", "salad-final",5);
+relocatedClicked("salad-final", "salad-ingredients",14);
